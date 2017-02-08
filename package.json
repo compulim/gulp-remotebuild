@@ -1,0 +1,22 @@
+{
+  "name": "gulp-taco-remote",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/compulim/gulp-taco-remote.git"
+  },
+  "keywords": [
+    "gulpplugin"
+  ],
+  "author": "William Wong <compulim@hotmail.com> (https://github.com/compulim)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/compulim/gulp-taco-remote/issues"
+  },
+  "homepage": "https://github.com/compulim/gulp-taco-remote#readme"
+}
