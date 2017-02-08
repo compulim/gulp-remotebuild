@@ -1,6 +1,8 @@
 # gulp-taco-remote
 
-Gulp plugin to build Cordova iOS app remotely using [Visual Studio Tools for Apache Cordova](https://taco.visualstudio.com/).
+Gulp plug-in to build Cordova iOS app remotely using [Visual Studio Tools for Apache Cordova](https://taco.visualstudio.com/).
+
+You can also use this plug-in and TACO to aid continuous integration.
 
 # How to use
 
@@ -11,13 +13,13 @@ const taco = require('./gulp-taco-remote');
 
 return gulp.src('./**/*')
   .pipe(taco({
-    configuration: IS_PRODUCTION ? 'release' : 'debug',
+    configuration: process.env.node_env === 'production' ? 'release' : 'debug',
     hostname     : '127.0.0.1'
   }))
   .pipe(gulp.dest('dist/'));
 ```
 
-It will send your files (excluding `bin`, `bld` and `platforms`) to your Mac, build it, and send the IPA file back to your Gulp box.
+It will send all your files (excluding `bin`, `bld` and `platforms`) to your Mac, build it, and send the IPA file back to your Gulp box.
 
 ```
 02/08/2017  06:08 PM         1,054,050 myapp.app.dSYM.zip
@@ -27,6 +29,8 @@ It will send your files (excluding `bin`, `bld` and `platforms`) to your Mac, bu
 ```
 
 # Options
+
+Default options are as below:
 
 ```js
 {
@@ -42,6 +46,24 @@ It will send your files (excluding `bin`, `bld` and `platforms`) to your Mac, bu
 }
 ```
 
+| Name             | Description                                                             |
+| ---------------- | ----------------------------------------------------------------------- |
+| `buildTimeout`   | Seconds to wait for build to complete                                   |
+| `configuration`  | `debug` for debug build, `release` for production build                 |
+| `cordovaVersion` | Cordova CLI version to use during build                                 |
+| `hostname`       | Host name of the `remotebuild` box                                      |
+| `logLevel`       | Log level                                                               |
+| `mount`          | Web mount point for `remotebuild`, i.e. https://127.0.0.1:3000/cordova/ |
+| `options`        | Options to send to Cordova CLI                                          |
+| `pollInterval`   | Interval to poll for build completion                                   |
+| `port`           | Port number of the `remotebuild` box                                    |
+
 # Known issues
 
 * Secured `remotebuild` is not supported yet
+
+# Contributions
+
+Like us? [Star us](https://github.com/compulim/gulp-taco-remote/stargazers).
+
+Found a bug? File us an [issue](https://github.com/compulim/gulp-taco-remote/issues).
