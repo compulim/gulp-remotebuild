@@ -22,6 +22,24 @@ return gulp.src('./**/*')
 It will send all your files (excluding `bin`, `bld` and `platforms`) to your Mac, build it, and send the IPA file back to your Gulp box.
 
 ```
+[18:08:04] Starting 'default'...
+[18:08:07] Compressing 693 files
+[18:08:09] Compressing 3,570 files
+[18:08:11] Compressing 6,552 files
+[18:08:13] Compressing 9,588 files
+[18:08:15] Compressing 11,357 files
+[18:08:17] Compressing 12,292 files
+[18:08:17] Remote building on 127.0.0.1:3000
+[18:08:22] Waiting for build to complete
+[18:08:52] Extracting myapp.plist
+[18:08:52] Extracting myapp.ipa
+[18:08:52] Extracting myapp.app.dSYM.zip
+[18:08:52] Finished 'default' after 48 s
+```
+
+Files outputted at `/dist/`.
+
+```
 02/08/2017  06:08 PM         1,054,050 myapp.app.dSYM.zip
 02/08/2017  06:08 PM         1,412,198 myapp.ipa
 02/08/2017  06:08 PM               831 myapp.plist
