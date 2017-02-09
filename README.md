@@ -4,7 +4,7 @@ Gulp plug-in to build Cordova iOS app remotely using [Visual Studio Tools for Ap
 
 You can also use this plug-in and TACO to aid continuous integration.
 
-# How to use
+## How to use
 
 Install [`remotebuild`](https://taco.visualstudio.com/en-us/docs/ios-guide/) on your Mac or [MacInCloud](https://macincloud.com/).
 
@@ -48,7 +48,7 @@ Files outputted at `/dist/`.
 02/08/2017  06:08 PM           417,042 taco.log
 ```
 
-# Options
+## Options
 
 Default options are as below:
 
@@ -78,11 +78,11 @@ Default options are as below:
 | `pollInterval`   | Interval to poll for build completion                                   |
 | `port`           | Port number of the `remotebuild` box                                    |
 
-# Known issues
+## Known issues
 
 * Secured `remotebuild` is not supported yet
 
-# Contributions
+## Contributions
 
 Like us? [Star us](https://github.com/compulim/gulp-taco-remote/stargazers).
 
