@@ -32,7 +32,6 @@
     "numeral": "^2.0.4",
     "read-all-stream": "^3.1.0",
     "taco-utils": "^1.4.2",
-    "through2": "^2.0.3",
-    "xml2js": "^0.4.17"
+    "through2": "^2.0.3"
   }
 }
