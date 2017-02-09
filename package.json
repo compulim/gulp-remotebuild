@@ -14,12 +14,25 @@
     "cordova",
     "gulpplugin",
     "phonegap",
-    "taco",
+    "taco"
   ],
   "author": "William Wong <compulim@hotmail.com> (https://github.com/compulim)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/compulim/gulp-taco-remote/issues"
   },
-  "homepage": "https://github.com/compulim/gulp-taco-remote#readme"
+  "homepage": "https://github.com/compulim/gulp-taco-remote#readme",
+  "dependencies": {
+    "archiver": "^1.3.0",
+    "colors": "^1.1.2",
+    "decompress": "^4.0.0",
+    "gulp-util": "^3.0.8",
+    "https-proxy-agent": "^1.0.0",
+    "node-fetch": "^1.6.3",
+    "numeral": "^2.0.4",
+    "read-all-stream": "^3.1.0",
+    "taco-utils": "^1.4.2",
+    "through2": "^2.0.3",
+    "xml2js": "^0.4.17"
+  }
 }
