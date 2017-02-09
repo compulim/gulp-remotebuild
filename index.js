@@ -9,22 +9,27 @@ const numeral           = require('numeral');
 const path              = require('path');
 const readAllStream     = require('read-all-stream');
 const RemoteBuildClient = require('./lib/remoteBuildClient');
+const url               = require('url');
 const through2          = require('through2');
 
 const DEFAULT_REMOTE_BUILD_OPTIONS = {
   buildTimeout  : 300000,
   configuration : 'debug',
   cordovaVersion: '5.1.1',
-  hostname      : 'localhost',
+  host          : 'localhost:3000',
   logLevel      : 'warn',
   mount         : 'cordova',
   options       : '--device',
-  pollInterval  : 1000,
-  port          : 3000
+  pollInterval  : 1000
 };
 
 module.exports = function (options = DEFAULT_REMOTE_BUILD_OPTIONS) {
   options = Object.assign({}, DEFAULT_REMOTE_BUILD_OPTIONS, options);
+
+  const { hostname, port } = url.parse(`http://${ options.host }`);
+
+  options.hostname = hostname;
+  options.port = port;
 
   const tar = archiver('tar', { gzip: true });
   let filesCompressed = 0;

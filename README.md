@@ -16,7 +16,7 @@ const taco = require('./gulp-taco-remote');
 return gulp.src('./**/*')
   .pipe(taco({
     configuration: process.env.node_env === 'production' ? 'release' : 'debug',
-    hostname     : 'localhost'
+    host         : 'localhost:3000'
   }))
   .pipe(gulp.dest('dist/'));
 ```
@@ -59,12 +59,11 @@ Default options are as below:
   buildTimeout  : 300000,
   configuration : 'debug',
   cordovaVersion: '5.1.1',
-  hostname      : 'localhost',
+  host          : 'localhost:3000',
   logLevel      : 'warn',
   mount         : 'cordova',
   options       : '--device',
-  pollInterval  : 1000,
-  port          : 3000
+  pollInterval  : 1000
 }
 ```
 
@@ -73,12 +72,11 @@ Default options are as below:
 | `buildTimeout`   | Seconds to wait for build to complete                                   |
 | `configuration`  | `debug` for debug build, `release` for production build                 |
 | `cordovaVersion` | Cordova CLI version to use during build                                 |
-| `hostname`       | Host name of the `remotebuild` box                                      |
+| `host    `       | Host name and port number of the `remotebuild` box                      |
 | `logLevel`       | Log level                                                               |
 | `mount`          | Web mount point for `remotebuild`, i.e. https://localhost:3000/cordova/ |
 | `options`        | Options to send to Cordova CLI                                          |
 | `pollInterval`   | Interval to poll for build completion                                   |
-| `port`           | Port number of the `remotebuild` box                                    |
 
 ## Known issues
 
