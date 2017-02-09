@@ -1,18 +1,18 @@
 'use strict';
 
-const archiver          = require('archiver');
-const colors            = require('colors');
-const decompress        = require('decompress');
-const gutil             = require('gulp-util');
-const intervalReporter  = require('./lib/intervalReporter');
-const numeral           = require('numeral');
-const path              = require('path');
-const readAllStream     = require('read-all-stream');
-const RemoteBuildClient = require('./lib/remoteBuildClient');
-const url               = require('url');
-const through2          = require('through2');
+const archiver         = require('archiver');
+const colors           = require('colors');
+const decompress       = require('decompress');
+const gutil            = require('gulp-util');
+const intervalReporter = require('./lib/intervalReporter');
+const numeral          = require('numeral');
+const path             = require('path');
+const readAllStream    = require('read-all-stream');
+const TacoRemoteClient = require('./lib/TacoRemoteClient');
+const url              = require('url');
+const through2         = require('through2');
 
-const DEFAULT_REMOTE_BUILD_OPTIONS = {
+const DEFAULT_TACO_REMOTE_CLIENT_OPTIONS = {
   buildTimeout  : 300000,
   configuration : 'debug',
   cordovaVersion: '5.1.1',
@@ -23,8 +23,8 @@ const DEFAULT_REMOTE_BUILD_OPTIONS = {
   pollInterval  : 1000
 };
 
-function build(options = DEFAULT_REMOTE_BUILD_OPTIONS) {
-  options = Object.assign({}, DEFAULT_REMOTE_BUILD_OPTIONS, options);
+function build(options = DEFAULT_TACO_REMOTE_CLIENT_OPTIONS) {
+  options = Object.assign({}, DEFAULT_TACO_REMOTE_CLIENT_OPTIONS, options);
 
   const { hostname, port } = url.parse(`http://${ options.host }`);
 
@@ -74,7 +74,7 @@ function build(options = DEFAULT_REMOTE_BUILD_OPTIONS) {
 
       gutil.log(`Building on ${ colors.magenta(options.hostname) }:${ colors.magenta(options.port) } against Cordova version ${ colors.green(cordovaVersion) }`);
 
-      const client = new RemoteBuildClient(options);
+      const client = new TacoRemoteClient(options);
 
       Promise.resolve()
         .then(() => client.buildWorkflow(tar))
