@@ -22,19 +22,21 @@ return gulp.src('./**/*')
 It will send all your files (excluding `bin`, `bld` and `platforms`) to your Mac, build it, and send the IPA file back to your Gulp box.
 
 ```
-[18:08:04] Starting 'default'...
-[18:08:07] Compressing 693 files
-[18:08:09] Compressing 3,570 files
-[18:08:11] Compressing 6,552 files
-[18:08:13] Compressing 9,588 files
-[18:08:15] Compressing 11,357 files
-[18:08:17] Compressing 12,292 files
-[18:08:17] Remote building on 127.0.0.1:3000
-[18:08:22] Waiting for build to complete
-[18:08:52] Extracting myapp.plist
-[18:08:52] Extracting myapp.ipa
-[18:08:52] Extracting myapp.app.dSYM.zip
-[18:08:52] Finished 'default' after 48 s
+[16:09:20] Starting 'default'...
+[16:09:22] taco.json requested for Cordova version 6.1.1
+[16:09:23] Compressing 1,221 files
+[16:09:25] Compressing 5,259 files
+[16:09:27] Compressing 9,944 files
+[16:09:28] Compressing 12,292 files
+[16:09:28] Building on localhost:3000 against Cordova version 6.1.1
+[16:09:32] remotebuild: Uploaded build request payload.
+[16:09:45] remotebuild: Acquiring Cordova.
+[16:09:47] remotebuild: Updating platform.
+[16:09:59] remotebuild: Build completed successfully.
+[16:10:00] Extracting myapp.plist (831 B)
+[16:10:00] Extracting myapp.ipa (1.5 MB)
+[16:10:00] Extracting myapp.app.dSYM.zip (527.4 KB)
+[16:10:00] Finished 'default' after 39 s
 ```
 
 Files outputted at `/dist/`.
@@ -54,8 +56,8 @@ Default options are as below:
 {
   buildTimeout  : 300000,
   configuration : 'debug',
-  cordovaVersion: '6.1.1',
-  hostname      : '127.0.0.1',
+  cordovaVersion: '5.1.1',
+  hostname      : 'localhost',
   logLevel      : 'warn',
   mount         : 'cordova',
   options       : '--device',
@@ -71,7 +73,7 @@ Default options are as below:
 | `cordovaVersion` | Cordova CLI version to use during build                                 |
 | `hostname`       | Host name of the `remotebuild` box                                      |
 | `logLevel`       | Log level                                                               |
-| `mount`          | Web mount point for `remotebuild`, i.e. https://127.0.0.1:3000/cordova/ |
+| `mount`          | Web mount point for `remotebuild`, i.e. https://localhost:3000/cordova/ |
 | `options`        | Options to send to Cordova CLI                                          |
 | `pollInterval`   | Interval to poll for build completion                                   |
 | `port`           | Port number of the `remotebuild` box                                    |
