@@ -14,7 +14,7 @@ const taco = require('./gulp-taco-remote');
 return gulp.src('./**/*')
   .pipe(taco({
     configuration: process.env.node_env === 'production' ? 'release' : 'debug',
-    hostname     : '127.0.0.1'
+    hostname     : 'localhost'
   }))
   .pipe(gulp.dest('dist/'));
 ```
