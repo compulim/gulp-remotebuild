@@ -57,7 +57,7 @@ function build(options = DEFAULT_TACO_REMOTE_CLIENT_OPTIONS) {
         readJSON(file).then(
           json => {
             cordovaVersion = json['cordova-cli'];
-            gutil.log(`${ colors.magenta('taco.json') } requested for Cordova version ${ colors.green(cordovaVersion) }`);
+            gutil.log(`${ colors.magenta('taco.json') } want Cordova version ${ colors.green(cordovaVersion) }`);
             callback();
           },
           err => callback(err)
