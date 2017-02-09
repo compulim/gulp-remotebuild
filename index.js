@@ -81,7 +81,7 @@ function build(options = DEFAULT_TACO_REMOTE_CLIENT_OPTIONS) {
         .then(buildOutput => {
           this.push(new gutil.File({
             contents: new Buffer(buildOutput.log),
-            path    : 'taco.log'
+            path    : 'taco-build.log'
           }));
 
           return decompress(buildOutput.zip);
