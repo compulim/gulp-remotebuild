@@ -14,7 +14,7 @@ Install [`remotebuild`](https://taco.visualstudio.com/en-us/docs/ios-guide/) on 
 const taco = require('./gulp-taco-remote');
 
 return gulp.src('./**/*')
-  .pipe(taco({
+  .pipe(taco.build({
     configuration: process.env.node_env === 'production' ? 'release' : 'debug',
     host         : 'localhost:3000'
   }))
@@ -81,6 +81,7 @@ Default options are as below:
 ## Known issues
 
 * Secured `remotebuild` is not supported yet
+* Currently, only `build` command is supported
 
 ## Contributions
 

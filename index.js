@@ -23,7 +23,7 @@ const DEFAULT_REMOTE_BUILD_OPTIONS = {
   pollInterval  : 1000
 };
 
-module.exports = function (options = DEFAULT_REMOTE_BUILD_OPTIONS) {
+function build(options = DEFAULT_REMOTE_BUILD_OPTIONS) {
   options = Object.assign({}, DEFAULT_REMOTE_BUILD_OPTIONS, options);
 
   const { hostname, port } = url.parse(`http://${ options.host }`);
@@ -112,3 +112,7 @@ function readBuffer(file, encoding) {
 function readJSON(file) {
   return readBuffer(file).then(JSON.parse);
 }
+
+module.exports = {
+  build
+};
