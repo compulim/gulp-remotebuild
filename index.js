@@ -4,12 +4,12 @@ const archiver          = require('archiver');
 const colors            = require('colors');
 const decompress        = require('decompress');
 const gutil             = require('gulp-util');
+const intervalReporter  = require('./lib/intervalReporter');
 const numeral           = require('numeral');
 const path              = require('path');
 const readAllStream     = require('read-all-stream');
 const RemoteBuildClient = require('./lib/remoteBuildClient');
 const through2          = require('through2');
-const intervalReporter  = require('./lib/intervalReporter');
 
 const DEFAULT_REMOTE_BUILD_OPTIONS = {
   buildTimeout  : 300000,
@@ -29,7 +29,6 @@ module.exports = function (options = DEFAULT_REMOTE_BUILD_OPTIONS) {
   const tar = archiver('tar', { gzip: true });
   let filesCompressed = 0;
   const stopReport = intervalReporter(() => gutil.log(`Compressing ${ colors.cyan(numeral(filesCompressed).format('0,0')) } files`));
-
   let cordovaVersion;
 
   return through2.obj(
@@ -52,8 +51,8 @@ module.exports = function (options = DEFAULT_REMOTE_BUILD_OPTIONS) {
       if (filename === 'taco.json') {
         readJSON(file).then(
           json => {
-            gutil.log(`${ colors.magenta('taco.json') } requested for Cordova version ${ colors.green(json['cordova-cli']) }`);
             cordovaVersion = json['cordova-cli'];
+            gutil.log(`${ colors.magenta('taco.json') } requested for Cordova version ${ colors.green(cordovaVersion) }`);
             callback();
           },
           err => callback(err)
@@ -73,7 +72,7 @@ module.exports = function (options = DEFAULT_REMOTE_BUILD_OPTIONS) {
       const client = new RemoteBuildClient(options);
 
       Promise.resolve()
-        .then(() => client.build(tar))
+        .then(() => client.buildWorkflow(tar))
         .then(buildOutput => {
           this.push(new gutil.File({
             contents: new Buffer(buildOutput.log),
