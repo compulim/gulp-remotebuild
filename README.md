@@ -19,7 +19,7 @@ return gulp.src('./**/*')
   .pipe(gulp.dest('dist/'));
 ```
 
-It will send all your files (excluding `bin`, `bld` and `platforms`) to your Mac, build it, and send the IPA file back to your Gulp box.
+It will send all your files (excluding `bin`, `bld` and `platforms`) to your Mac, build it, and send the [.ipa file](https://en.wikipedia.org/wiki/.ipa) back to your Gulp box.
 
 ```
 [16:09:20] Starting 'default'...
