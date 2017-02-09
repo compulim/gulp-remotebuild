@@ -44,10 +44,10 @@ It will send all your files (excluding `bin`, `bld` and `platforms`) to your Mac
 Files outputted at `/dist/`.
 
 ```
-02/08/2017  06:08 PM         1,054,050 myapp.app.dSYM.zip
-02/08/2017  06:08 PM         1,412,198 myapp.ipa
+02/08/2017  06:08 PM           527,375 myapp.app.dSYM.zip
+02/08/2017  06:08 PM         1,499,789 myapp.ipa
 02/08/2017  06:08 PM               831 myapp.plist
-02/08/2017  06:08 PM           417,042 taco-build.log
+02/08/2017  06:08 PM           254,170 taco-build.log
 ```
 
 ## Options
