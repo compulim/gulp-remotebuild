@@ -15,7 +15,7 @@ const through2         = require('through2');
 const DEFAULT_TACO_REMOTE_CLIENT_OPTIONS = {
   buildTimeout  : 300000,
   configuration : 'debug',
-  cordovaVersion: '5.1.1',
+  cordovaVersion: '6.1.1',
   host          : 'localhost:3000',
   logLevel      : 'warn',
   mount         : 'cordova',

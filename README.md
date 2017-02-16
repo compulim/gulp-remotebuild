@@ -1,17 +1,19 @@
-# gulp-taco-remote
+# gulp-remotebuild
+
+[![npm version](https://badge.fury.io/js/gulp-remotebuild.svg)](https://badge.fury.io/js/gulp-remotebuild) [![Node.js dependencies](https://david-dm.org/compulim/gulp-remotebuild.svg)](https://david-dm.org/compulim/gulp-remotebuild) [![npm downloads](https://img.shields.io/npm/dm/gulp-remotebuild.svg)](https://img.shields.io/npm/dm/gulp-remotebuild.svg)
 
 Gulp plug-in to build Cordova iOS app remotely using [Visual Studio Tools for Apache Cordova](https://taco.visualstudio.com/).
 
 You can also use this plug-in and TACO to aid continuous integration.
 
-This Gulp plug-in is largely based on this [REST API doc](https://github.com/Microsoft/remotebuild/blob/master/src/taco-remote/RESTAPI.md).
+This Gulp plug-in is largely based on this [REST API doc](https://github.com/Microsoft/remotebuild/blob/master/src/remotebuild/RESTAPI.md).
 
 ## How to use
 
 Install [`remotebuild`](https://taco.visualstudio.com/en-us/docs/ios-guide/) on your Mac or [MacInCloud](https://macincloud.com/).
 
 ```js
-const taco = require('./gulp-taco-remote');
+const taco = require('./gulp-remotebuild');
 
 return gulp.src('./**/*')
   .pipe(taco.build({
@@ -85,6 +87,6 @@ Default options are as below:
 
 ## Contributions
 
-Like us? [Star us](https://github.com/compulim/gulp-taco-remote/stargazers).
+Like us? [Star us](https://github.com/compulim/gulp-remotebuild/stargazers).
 
-Found a bug? File us an [issue](https://github.com/compulim/gulp-taco-remote/issues).
+Found a bug? File us an [issue](https://github.com/compulim/gulp-remotebuild/issues).
