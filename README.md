@@ -6,7 +6,7 @@ Gulp plug-in to build Cordova iOS app remotely using [Visual Studio Tools for Ap
 
 You can also use this plug-in and TACO to aid continuous integration.
 
-This Gulp plug-in is largely based on this [REST API doc](https://github.com/Microsoft/remotebuild/blob/master/src/remotebuild/RESTAPI.md).
+This Gulp plug-in is largely based on this [REST API doc](https://github.com/Microsoft/remotebuild/blob/master/src/taco-remote/RESTAPI.md).
 
 ## How to use
 
