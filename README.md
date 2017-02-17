@@ -96,6 +96,7 @@ See the discussions at [https://github.com/Microsoft/remotebuild/issues/23].
 
 * Secured `remotebuild` is not supported yet
 * Currently, only `build` command is supported
+* Does not support incremental build
 
 ## Contributions
 
