@@ -60,7 +60,7 @@ Default options are as below:
 {
   buildTimeout  : 300000,
   configuration : 'debug',
-  cordovaVersion: '5.1.1',
+  cordovaVersion: '6.1.1',
   host          : 'localhost:3000',
   logLevel      : 'warn',
   mount         : 'cordova',
