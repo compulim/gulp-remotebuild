@@ -41,7 +41,15 @@ function build(options = DEFAULT_TACO_REMOTE_CLIENT_OPTIONS) {
       const filename = file.relative.replace(/\\/g, '/') + (file.isNull() ? '/' : '');
       const firstSegment = filename.split('/')[0];
 
-      if (firstSegment !== 'bin' && firstSegment !== 'bld' && firstSegment !== 'platforms') {
+      // TODO: Should also exclude merges/ios, res/[screens,icons,cert,native]/ios
+      //       See https://github.com/Microsoft/taco-cli/blob/bb4de9a390a571cf272bdbde3b75471716986c1a/src/taco-cli/cli/remoteBuild/remoteBuildClientHelper.ts#L381
+
+      if (
+        firstSegment !== 'bin'
+        && firstSegment !== 'bld'
+        && firstSegment !== 'platforms'
+        && firstSegment !== 'remote'
+      ) {
         tar.append(
           file.contents,
           {
