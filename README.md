@@ -80,6 +80,18 @@ Default options are as below:
 | `options`        | Options to send to Cordova CLI                                          |
 | `pollInterval`   | Interval to poll for build completion                                   |
 
+## FAQs
+
+### Instead of REST APIs, why not connect via `taco-cli`?
+
+[`taco-cli`](https://github.com/microsoft/taco-cli) is a CLI built by Microsoft and it talks to `remotebuild` box.
+
+Since Gulp prefer `vinyl` objects and `taco-cli` requires physical file system, bridging Gulp to `taco-cli` would increase the build time. Per discussion with `remotebuild` dev, the REST API provided by `remotebuild` is stable.
+
+Thus, in the current moment, we prefer talking to `remotebuild` box via REST API instead of `taco-cli`.
+
+See the discussions at [https://github.com/Microsoft/remotebuild/issues/23].
+
 ## Known issues
 
 * Secured `remotebuild` is not supported yet
